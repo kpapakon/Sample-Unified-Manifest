@@ -5,7 +5,7 @@ import { App } from './app/app';
 Office.onReady().then(appInit);
 
 function appInit() {
-  //Office.addin.setStartupBehavior(Office.StartupBehavior.load);
+  Office.addin.setStartupBehavior(Office.StartupBehavior.load);
 
   if (!window.history.replaceState) {
     window.history.replaceState = function () {};

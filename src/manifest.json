@@ -1,153 +1,271 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.22/MicrosoftTeams.schema.json#",
-  "manifestVersion": "1.22",
-  "version": "1.0.0",
-  "id": "7d098193-d031-45fe-b96a-2277eecfd839",
-  "localizationInfo": {
-    "defaultLanguageTag": "en-us"
-  },
-  "developer": {
-    "name": "Contoso",
-    "websiteUrl": "https://www.contoso.com/help",
-    "privacyUrl": "https://www.contoso.com/help",
-    "termsOfUseUrl": "https://www.contoso.com/help"
-  },
-  "name": {
-    "short": "Test-Addin",
-    "full": "Test-Addin"
-  },
-  "description": {
-    "short": "A template to get started.",
-    "full": "A template to get started."
-  },
-  "icons": {
-    "outline": "assets/icon-32.png",
-    "color": "assets/icon-64.png"
-  },
-  "accentColor": "#230201",
-  "validDomains": ["https://www.contoso.com", "https://localhost:3000"],
-  "showLoadingIndicator": false,
-  "authorization": {
-    "permissions": {
-      "resourceSpecific": [
-        {
-          "name": "Document.ReadWrite.User",
-          "type": "Delegated"
-        }
-      ]
-    }
-  },
-  "extensions": [
-    {
-      "requirements": {
-        "scopes": ["document"]
-      },
-      "runtimes": [
-        {
-          "requirements": {
-            "capabilities": [
-              {
-                "name": "AddinCommands",
-                "minVersion": "1.1"
-              }
-            ],
-            "formFactors": ["desktop"]
-          },
-          "id": "runtime_1",
-          "type": "general",
-          "code": {
-            "page": "https://localhost:3000/taskpane"
-          },
-          "lifetime": "short",
-          "actions": [
+    "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.22/MicrosoftTeams.schema.json#",
+    "manifestVersion": "1.22",
+    "version": "1.0.0",
+    "id": "e47d0e7c-465b-4d5f-9d6f-25a92c6a7f8a",
+    "localizationInfo": {
+        "defaultLanguageTag": "en-us",
+        "additionalLanguages": [
             {
-              "id": "Office.AutoShowTaskpaneWithDocument_1",
-              "type": "openPage",
-              "view": "Office.AutoShowTaskpaneWithDocument"
+                "languageTag": "en-gb",
+                "file": "en-gb.json"
             }
-          ]
-        }
-      ],
-      "ribbons": [
-        {
-          "requirements": {
-            "capabilities": [
-              {
-                "name": "AddinCommands",
-                "minVersion": "1.1"
-              }
-            ],
-            "scopes": ["document"],
-            "formFactors": ["desktop"]
-          },
-          "contexts": ["default"],
-          "tabs": [
-            {
-              "builtInTabId": "TabHome",
-              "groups": [
+        ]
+    },
+    "developer": {
+        "name": "Contoso",
+        "websiteUrl": "https://www.contoso.com/help",
+        "privacyUrl": "https://www.contoso.com/help",
+        "termsOfUseUrl": "https://www.contoso.com/help"
+    },
+    "name": {
+        "short": "Test-Addin",
+        "full": "Test-Addin"
+    },
+    "description": {
+        "short": "A template to get started.",
+        "full": "A template to get started."
+    },
+    "icons": {
+        "outline": "assets/icon-32.png",
+        "color": "assets/icon-64.png"
+    },
+    "accentColor": "#230201",
+    "validDomains": [
+        "https://www.contoso.com",
+        "https://localhost:3000"
+    ],
+    "showLoadingIndicator": false,
+    "isFullScreen": false,
+    "defaultBlockUntilAdminAction": false,
+    "authorization": {
+        "permissions": {
+            "resourceSpecific": [
                 {
-                  "id": "CommandsGroup",
-                  "label": "Test Addin",
-                  "icons": [
-                    {
-                      "size": 16,
-                      "url": "https://localhost:3000/assets/icon-16.png"
-                    },
-                    {
-                      "size": 32,
-                      "url": "https://localhost:3000/assets/icon-32.png"
-                    },
-                    {
-                      "size": 80,
-                      "url": "https://localhost:3000/assets/icon-80.png"
-                    }
-                  ],
-                  "controls": [
-                    {
-                      "id": "TaskpaneButton",
-                      "type": "button",
-                      "label": "Show Task Pane",
-                      "icons": [
-                        {
-                          "size": 16,
-                          "url": "https://localhost:3000/assets/icon-16.png"
-                        },
-                        {
-                          "size": 32,
-                          "url": "https://localhost:3000/assets/icon-32.png"
-                        },
-                        {
-                          "size": 80,
-                          "url": "https://localhost:3000/assets/icon-80.png"
-                        }
-                      ],
-                      "supertip": {
-                        "title": "Show Task Pane",
-                        "description": "Click to Show a Taskpane"
-                      },
-                      "actionId": "Office.AutoShowTaskpaneWithDocument_1"
-                    }
-                  ]
+                    "name": "Document.ReadWrite.User",
+                    "type": "Delegated"
                 }
-              ]
-            }
-          ]
+            ]
         }
-      ],
-      "alternates": [
+    },
+    "extensions": [
         {
-          "alternateIcons": {
-            "icon": {
-              "size": 32,
-              "url": "https://localhost:3000/assets/icon-32.png"
+            "requirements": {
+                "capabilities": [
+                    {
+                        "name": "SharedRuntime",
+                        "minVersion": "1.1"
+                    }
+                ],
+                "scopes": [
+                    "document"
+                ]
             },
-            "highResolutionIcon": {
-              "size": 64,
-              "url": "https://localhost:3000/assets/icon-64.png"
-            }
-          }
+            "runtimes": [
+                {
+                    "requirements": {
+                        "capabilities": [
+                            {
+                                "name": "AddinCommands",
+                                "minVersion": "1.1"
+                            }
+                        ],
+                        "formFactors": [
+                            "desktop"
+                        ]
+                    },
+                    "id": "runtime_1",
+                    "type": "general",
+                    "code": {
+                        "page": "https://localhost:3000/taskpane"
+                    },
+                    "lifetime": "long"
+                },
+                {
+                    "requirements": {
+                        "capabilities": [
+                            {
+                                "name": "AddinCommands",
+                                "minVersion": "1.1"
+                            }
+                        ],
+                        "formFactors": [
+                            "desktop"
+                        ]
+                    },
+                    "id": "runtime_2",
+                    "type": "general",
+                    "code": {
+                        "page": "https://localhost:3000/taskpane"
+                    },
+                    "lifetime": "short",
+                    "actions": [
+                        {
+                            "id": "ButtonId1_1",
+                            "type": "openPage",
+                            "displayName": "ButtonId1_1",
+                            "pinnable": false,
+                            "view": "ButtonId1",
+                            "multiselect": false,
+                            "supportsNoItemContext": false
+                        },
+                        {
+                            "id": "helloAction",
+                            "type": "executeFunction",
+                            "displayName": "helloAction",
+                            "multiselect": false,
+                            "supportsNoItemContext": false
+                        },
+                        {
+                            "id": "underlinedAction",
+                            "type": "executeFunction",
+                            "displayName": "underlinedAction",
+                            "multiselect": false,
+                            "supportsNoItemContext": false
+                        }
+                    ]
+                }
+            ],
+            "ribbons": [
+                {
+                    "requirements": {
+                        "capabilities": [
+                            {
+                                "name": "AddinCommands",
+                                "minVersion": "1.1"
+                            }
+                        ],
+                        "scopes": [
+                            "document"
+                        ],
+                        "formFactors": [
+                            "desktop"
+                        ]
+                    },
+                    "contexts": [
+                        "default"
+                    ],
+                    "tabs": [
+                        {
+                            "builtInTabId": "TabHome",
+                            "groups": [
+                                {
+                                    "id": "CommandsGroup",
+                                    "label": "Test Addin",
+                                    "icons": [
+                                        {
+                                            "size": 16,
+                                            "url": "https://localhost:3000/assets/icon-16.png"
+                                        },
+                                        {
+                                            "size": 32,
+                                            "url": "https://localhost:3000/assets/icon-32.png"
+                                        },
+                                        {
+                                            "size": 80,
+                                            "url": "https://localhost:3000/assets/icon-80.png"
+                                        }
+                                    ],
+                                    "controls": [
+                                        {
+                                            "id": "TaskpaneButton",
+                                            "type": "button",
+                                            "label": "Show Task Pane",
+                                            "icons": [
+                                                {
+                                                    "size": 16,
+                                                    "url": "https://localhost:3000/assets/icon-16.png"
+                                                },
+                                                {
+                                                    "size": 32,
+                                                    "url": "https://localhost:3000/assets/icon-32.png"
+                                                },
+                                                {
+                                                    "size": 80,
+                                                    "url": "https://localhost:3000/assets/icon-80.png"
+                                                }
+                                            ],
+                                            "supertip": {
+                                                "title": "Show Task Pane",
+                                                "description": "Click to Show a Taskpane"
+                                            },
+                                            "actionId": "ButtonId1_1",
+                                            "overriddenByRibbonApi": false,
+                                            "enabled": true
+                                        },
+                                        {
+                                            "id": "HelloAction",
+                                            "type": "button",
+                                            "label": "Say Hello",
+                                            "icons": [
+                                                {
+                                                    "size": 16,
+                                                    "url": "https://localhost:3000/assets/icon-16.png"
+                                                },
+                                                {
+                                                    "size": 32,
+                                                    "url": "https://localhost:3000/assets/icon-32.png"
+                                                },
+                                                {
+                                                    "size": 80,
+                                                    "url": "https://localhost:3000/assets/icon-80.png"
+                                                }
+                                            ],
+                                            "supertip": {
+                                                "title": "Say Hello",
+                                                "description": "Just do it!"
+                                            },
+                                            "actionId": "helloAction",
+                                            "overriddenByRibbonApi": false,
+                                            "enabled": true
+                                        },
+                                        {
+                                            "id": "UnderlineButton",
+                                            "type": "button",
+                                            "label": "Underline",
+                                            "icons": [
+                                                {
+                                                    "size": 16,
+                                                    "url": "https://localhost:3000/assets/icon-16.png"
+                                                },
+                                                {
+                                                    "size": 32,
+                                                    "url": "https://localhost:3000/assets/icon-32.png"
+                                                },
+                                                {
+                                                    "size": 80,
+                                                    "url": "https://localhost:3000/assets/icon-80.png"
+                                                }
+                                            ],
+                                            "supertip": {
+                                                "title": "Underline",
+                                                "description": "Underline selection"
+                                            },
+                                            "actionId": "underlinedAction",
+                                            "overriddenByRibbonApi": false,
+                                            "enabled": false
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "alternates": [
+                {
+                    "alternateIcons": {
+                        "icon": {
+                            "size": 32,
+                            "url": "https://localhost:3000/assets/icon-32.png"
+                        },
+                        "highResolutionIcon": {
+                            "size": 64,
+                            "url": "https://localhost:3000/assets/icon-64.png"
+                        }
+                    }
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }

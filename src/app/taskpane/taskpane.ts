@@ -38,7 +38,7 @@ export class Taskpane implements OnInit {
     const selection = await WordActions.getTextSelection(eventArgs.document);
     const isAnythingSelected = selection !== null && selection !== '';
     // Enable the button to add style only if there is a selection.
-    //await TaskpaneActions.enableButton('UnderlineButton', isAnythingSelected);
+    await TaskpaneActions.enableButton('UnderlineButton', isAnythingSelected);
   }
 
   async onButtonClick(action: boolean) {
