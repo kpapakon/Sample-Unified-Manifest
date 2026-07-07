@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.22/MicrosoftTeams.schema.json#",
   "manifestVersion": "1.22",
   "version": "1.0.0",
-  "id": "7d098193-d031-45fe-b96a-2277eecfd839",
+  "id": "a79b3a08-5c5c-4e6d-8ca7-b0fa12e66087",
   "localizationInfo": {
     "defaultLanguageTag": "en-us"
   },
@@ -40,6 +40,12 @@
   "extensions": [
     {
       "requirements": {
+        "capabilities": [
+          {
+            "name": "SharedRuntime",
+            "minVersion": "1.1"
+          }
+        ],
         "scopes": ["document"]
       },
       "runtimes": [
@@ -58,12 +64,47 @@
           "code": {
             "page": "https://localhost:3000/taskpane"
           },
+          "lifetime": "long"
+        },
+        {
+          "requirements": {
+            "capabilities": [
+              {
+                "name": "AddinCommands",
+                "minVersion": "1.1"
+              }
+            ],
+            "formFactors": ["desktop"]
+          },
+          "id": "runtime_2",
+          "type": "general",
+          "code": {
+            "page": "https://localhost:3000/taskpane"
+          },
           "lifetime": "short",
           "actions": [
             {
-              "id": "Office.AutoShowTaskpaneWithDocument_1",
+              "id": "ButtonId1_1",
               "type": "openPage",
-              "view": "Office.AutoShowTaskpaneWithDocument"
+              "displayName": "ButtonId1_1",
+              "pinnable": false,
+              "view": "ButtonId1",
+              "multiselect": false,
+              "supportsNoItemContext": false
+            },
+            {
+              "id": "helloAction",
+              "type": "executeFunction",
+              "displayName": "helloAction",
+              "multiselect": false,
+              "supportsNoItemContext": false
+            },
+            {
+              "id": "underlinedAction",
+              "type": "executeFunction",
+              "displayName": "underlinedAction",
+              "multiselect": false,
+              "supportsNoItemContext": false
             }
           ]
         }
@@ -125,7 +166,61 @@
                         "title": "Show Task Pane",
                         "description": "Click to Show a Taskpane"
                       },
-                      "actionId": "Office.AutoShowTaskpaneWithDocument_1"
+                      "actionId": "ButtonId1_1",
+                      "overriddenByRibbonApi": false,
+                      "enabled": true
+                    },
+                    {
+                      "id": "HelloAction",
+                      "type": "button",
+                      "label": "Say Hello",
+                      "icons": [
+                        {
+                          "size": 16,
+                          "url": "https://localhost:3000/assets/icon-16.png"
+                        },
+                        {
+                          "size": 32,
+                          "url": "https://localhost:3000/assets/icon-32.png"
+                        },
+                        {
+                          "size": 80,
+                          "url": "https://localhost:3000/assets/icon-80.png"
+                        }
+                      ],
+                      "supertip": {
+                        "title": "Say Hello",
+                        "description": "Just do it!"
+                      },
+                      "actionId": "helloAction",
+                      "overriddenByRibbonApi": false,
+                      "enabled": true
+                    },
+                    {
+                      "id": "UnderlineButton",
+                      "type": "button",
+                      "label": "Underline",
+                      "icons": [
+                        {
+                          "size": 16,
+                          "url": "https://localhost:3000/assets/icon-16.png"
+                        },
+                        {
+                          "size": 32,
+                          "url": "https://localhost:3000/assets/icon-32.png"
+                        },
+                        {
+                          "size": 80,
+                          "url": "https://localhost:3000/assets/icon-80.png"
+                        }
+                      ],
+                      "supertip": {
+                        "title": "Underline",
+                        "description": "Underline selection"
+                      },
+                      "actionId": "underlinedAction",
+                      "overriddenByRibbonApi": false,
+                      "enabled": false
                     }
                   ]
                 }
