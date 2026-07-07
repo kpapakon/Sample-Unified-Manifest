@@ -1,0 +1,153 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.22/MicrosoftTeams.schema.json#",
+  "manifestVersion": "1.22",
+  "version": "1.0.0",
+  "id": "7d098193-d031-45fe-b96a-2277eecfd839",
+  "localizationInfo": {
+    "defaultLanguageTag": "en-us"
+  },
+  "developer": {
+    "name": "Contoso",
+    "websiteUrl": "https://www.contoso.com/help",
+    "privacyUrl": "https://www.contoso.com/help",
+    "termsOfUseUrl": "https://www.contoso.com/help"
+  },
+  "name": {
+    "short": "Test-Addin",
+    "full": "Test-Addin"
+  },
+  "description": {
+    "short": "A template to get started.",
+    "full": "A template to get started."
+  },
+  "icons": {
+    "outline": "assets/icon-32.png",
+    "color": "assets/icon-64.png"
+  },
+  "accentColor": "#230201",
+  "validDomains": ["https://www.contoso.com", "https://localhost:3000"],
+  "showLoadingIndicator": false,
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        {
+          "name": "Document.ReadWrite.User",
+          "type": "Delegated"
+        }
+      ]
+    }
+  },
+  "extensions": [
+    {
+      "requirements": {
+        "scopes": ["document"]
+      },
+      "runtimes": [
+        {
+          "requirements": {
+            "capabilities": [
+              {
+                "name": "AddinCommands",
+                "minVersion": "1.1"
+              }
+            ],
+            "formFactors": ["desktop"]
+          },
+          "id": "runtime_1",
+          "type": "general",
+          "code": {
+            "page": "https://localhost:3000/taskpane"
+          },
+          "lifetime": "short",
+          "actions": [
+            {
+              "id": "Office.AutoShowTaskpaneWithDocument_1",
+              "type": "openPage",
+              "view": "Office.AutoShowTaskpaneWithDocument"
+            }
+          ]
+        }
+      ],
+      "ribbons": [
+        {
+          "requirements": {
+            "capabilities": [
+              {
+                "name": "AddinCommands",
+                "minVersion": "1.1"
+              }
+            ],
+            "scopes": ["document"],
+            "formFactors": ["desktop"]
+          },
+          "contexts": ["default"],
+          "tabs": [
+            {
+              "builtInTabId": "TabHome",
+              "groups": [
+                {
+                  "id": "CommandsGroup",
+                  "label": "Test Addin",
+                  "icons": [
+                    {
+                      "size": 16,
+                      "url": "https://localhost:3000/assets/icon-16.png"
+                    },
+                    {
+                      "size": 32,
+                      "url": "https://localhost:3000/assets/icon-32.png"
+                    },
+                    {
+                      "size": 80,
+                      "url": "https://localhost:3000/assets/icon-80.png"
+                    }
+                  ],
+                  "controls": [
+                    {
+                      "id": "TaskpaneButton",
+                      "type": "button",
+                      "label": "Show Task Pane",
+                      "icons": [
+                        {
+                          "size": 16,
+                          "url": "https://localhost:3000/assets/icon-16.png"
+                        },
+                        {
+                          "size": 32,
+                          "url": "https://localhost:3000/assets/icon-32.png"
+                        },
+                        {
+                          "size": 80,
+                          "url": "https://localhost:3000/assets/icon-80.png"
+                        }
+                      ],
+                      "supertip": {
+                        "title": "Show Task Pane",
+                        "description": "Click to Show a Taskpane"
+                      },
+                      "actionId": "Office.AutoShowTaskpaneWithDocument_1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "alternates": [
+        {
+          "alternateIcons": {
+            "icon": {
+              "size": 32,
+              "url": "https://localhost:3000/assets/icon-32.png"
+            },
+            "highResolutionIcon": {
+              "size": 64,
+              "url": "https://localhost:3000/assets/icon-64.png"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

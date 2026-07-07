@@ -1,0 +1,48 @@
+{
+  "name": "bighand-document-stamping",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "create-certs": "mkcert create-ca --key .cert/ca.key --cert .cert/ca.crt && mkcert create-cert --ca-key .cert/ca.key --ca-cert .cert/ca.crt --key .cert/cert.key --cert .cert/cert.crt",
+    "start-office": "office-addin-debugging start src/manifest.json",
+    "start:desktop": "office-addin-debugging start src/manifest.json desktop",
+    "validate": "office-addin-manifest validate src/manifest.json",
+    "dev-server": "ng serve"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^20.0.0",
+    "@angular/compiler": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/forms": "^20.0.0",
+    "@angular/platform-browser": "^20.0.0",
+    "@angular/router": "^20.0.0",
+    "@microsoft/office-js": "^1.1.110",
+    "office-ui-fabric-js": "^1.5.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.0.2",
+    "@angular/cli": "^20.0.2",
+    "@angular/compiler-cli": "^20.0.0",
+    "@types/jasmine": "~5.1.0",
+    "@types/office-js": "^1.0.514",
+    "@types/office-runtime": "^1.0.35",
+    "jasmine-core": "~5.7.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "mkcert": "^3.2.0",
+    "office-addin-debugging": "^6.0.6",
+    "office-addin-manifest": "^2.1.2",
+    "typescript": "~5.8.2"
+  }
+}

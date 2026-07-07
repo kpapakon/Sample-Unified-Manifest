@@ -1,0 +1,17 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.22/MicrosoftTeams.Localization.schema.json",
+    "name.short": "Sample",
+    "name.full": "Sample translation",
+    "description.short": "An example of addin",
+    "description.full": "An example for converting an add-in to different languages with unified manifest",
+    "extensions[0].ribbons[0].tabs[0].groups[0].label": "Test Addin",
+    "extensions[0].ribbons[0].tabs[0].groups[0].controls[0].label": "Show Task Pane",
+    "extensions[0].ribbons[0].tabs[0].groups[0].controls[0].supertip.title": "Show Task Pane",
+    "extensions[0].ribbons[0].tabs[0].groups[0].controls[1].label": "Say Hello",
+    "extensions[0].ribbons[0].tabs[0].groups[0].controls[1].supertip.title": "Say Hello",
+    "extensions[0].ribbons[0].tabs[0].groups[0].controls[2].label": "Underline",
+    "extensions[0].ribbons[0].tabs[0].groups[0].controls[2].supertip.title": "Underline",
+    "extensions[0].runtimes[1].actions[0].displayName": "ButtonId1_1",
+    "extensions[0].runtimes[1].actions[1].displayName": "helloAction",
+    "extensions[0].runtimes[1].actions[2].displayName": "underlinedAction"
+}
